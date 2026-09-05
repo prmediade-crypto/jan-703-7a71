@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#2450C9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jan 70.3">
+<title>Jans 70.3-Projekt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🏊%3C/text%3E%3C/svg%3E">
+</head>
+<body style="background:#F2F4F6">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --bg: #F2F4F6; --surface: #FFFFFF; --surface-2: #E8EDF2; --ink: #1A2433; --muted: #5C6B7E;
+    --accent: #2450C9; --on-accent: #FFFFFF; --accent-soft: #DDE6F8; --highlight: #C25A18; --highlight-soft: #F6E5D6; --line: #DCE1E8;
+    --swim: #1E8FA6; --run: #2450C9; --bike: #C25A18; --gym: #5C6B7E; --rest: #2E7D4F; --good: #2E7D4F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F141C; --surface: #171F2B; --surface-2: #1E2836; --ink: #E7ECF3; --muted: #93A2B5;
+      --accent: #7FA3F5; --on-accent: #0D1524; --accent-soft: #1C2B4A; --highlight: #E59A5C; --highlight-soft: #3A2917; --line: #263242;
+      --swim: #5FC3D6; --run: #7FA3F5; --bike: #E59A5C; --gym: #93A2B5; --rest: #58B37F; --good: #58B37F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F141C; --surface: #171F2B; --surface-2: #1E2836; --ink: #E7ECF3; --muted: #93A2B5;
+    --accent: #7FA3F5; --on-accent: #0D1524; --accent-soft: #1C2B4A; --highlight: #E59A5C; --highlight-soft: #3A2917; --line: #263242;
+    --swim: #5FC3D6; --run: #7FA3F5; --bike: #E59A5C; --gym: #93A2B5; --rest: #58B37F; --good: #58B37F;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: "Barlow", "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.55; margin: 0; padding: 24px 16px 80px; }
+  .wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  h1, h2, h3 { font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif; text-wrap: balance; }
+  h1 { font-size: clamp(2.4rem, 8vw, 3.2rem); font-weight: 700; margin: 6px 0 4px; text-transform: uppercase; line-height: 1; }
+  h2 { font-size: 1.6rem; font-weight: 700; margin: 0 0 12px; text-transform: uppercase; letter-spacing: .02em; }
+  h2 .num { color: var(--accent); margin-right: .3em; }
+  h3 { font-size: 1.25rem; font-weight: 700; margin: 0; }
+  p { margin: .5em 0; }
+  .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  .lede { color: var(--muted); margin: 0; max-width: 62ch; }
+  .muted { color: var(--muted); }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 560px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .card b { display: block; font-family: "Barlow Condensed", Arial, sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .card span { font-size: .8rem; color: var(--muted); font-weight: 600; }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  nav.toc a { background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none; padding: 5px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+  nav.toc a:hover, nav.toc a:focus-visible { background: var(--accent); color: var(--on-accent); border-color: var(--accent); outline: none; }
+  section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; scroll-margin-top: 12px; }
+  .panel.tint { background: var(--accent-soft); border-color: transparent; }
+  .panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .panel-head h2 { margin: 0; }
+  .progress { font-size: .9rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .day-date { font-size: .85rem; color: var(--muted); font-weight: 600; font-family: "Barlow", Arial, sans-serif; text-transform: none; letter-spacing: 0; }
+  .note { font-size: .9rem; color: var(--muted); margin: 10px 0 0; }
+  .rule-list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .rule-list b { color: var(--accent); }
+  .tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  th { font-size: .74rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); background: var(--surface-2); }
+  td.n, th.n { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  tr.now td { background: var(--accent-soft); }
+  .pill { display: inline-block; background: var(--highlight-soft); color: var(--highlight); border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; margin-left: 6px; vertical-align: middle; }
+  /* Checks */
+  .checklist { display: grid; gap: 8px; }
+  .check { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; cursor: pointer; user-select: none; position: relative; }
+  .check input, .unit input { position: absolute; opacity: 0; pointer-events: none; }
+  .box { flex: 0 0 26px; width: 26px; height: 26px; border: 2px solid var(--muted); border-radius: 7px; display: grid; place-items: center; color: transparent; font-weight: 800; font-size: 17px; }
+  .done .box { background: var(--good); border-color: var(--good); color: #fff; }
+  .check .t { flex: 1; }
+  .check .t b { display: block; font-size: .95rem; }
+  .check .t span { color: var(--muted); font-size: .8rem; }
+  .done .t > b, .done .ut { text-decoration: line-through; color: var(--muted); }
+  .check .right { color: var(--muted); font-size: .82rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .check:focus-within, .unit:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .dots { display: flex; gap: 6px; margin-top: 10px; align-items: center; }
+  .dots .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); }
+  .dots .dot.full { background: var(--good); border-color: var(--good); }
+  .dots .dot.part { background: var(--highlight); border-color: var(--highlight); }
+  .dots .lbl { color: var(--muted); font-size: .75rem; margin-left: 4px; }
+  .resetbtn { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px; font-size: .85rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .resetbtn:hover, .resetbtn:focus-visible { background: var(--accent); color: var(--on-accent); border-color: var(--accent); outline: none; }
+  /* Wochen / Einheiten */
+  .week { border-top: 3px solid var(--ink); padding-top: 12px; margin-top: 22px; scroll-margin-top: 12px; }
+  .week:first-of-type { margin-top: 4px; }
+  .weekhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .weekhead .prog { margin-left: auto; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .intro { color: var(--muted); margin: 6px 0 12px; }
+  .units { display: grid; gap: 8px; }
+  .unit { display: flex; align-items: flex-start; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: 10px; padding: 11px 14px; cursor: pointer; user-select: none; position: relative; }
+  .unit .box { margin-top: 2px; }
+  .unit.swim { border-left-color: var(--swim); } .unit.run { border-left-color: var(--run); } .unit.bike { border-left-color: var(--bike); } .unit.gym { border-left-color: var(--gym); }
+  .unit.rest { border-left-color: var(--rest); background: var(--surface-2); }
+  .unit .t { flex: 1; min-width: 0; }
+  .dl { display: flex; gap: 8px; align-items: baseline; font-size: .82rem; flex-wrap: wrap; }
+  .dl b { font-variant-numeric: tabular-nums; }
+  .dl em { font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; }
+  .swim .dl em { color: var(--swim); } .run .dl em { color: var(--run); } .bike .dl em { color: var(--bike); } .gym .dl em { color: var(--gym); } .rest .dl em { color: var(--rest); }
+  .dl .dur { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .ut { display: block; font-size: 1.02rem; margin-top: 2px; }
+  .ud { display: block; color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 2px; }
+  /* Zonen */
+  .zonein { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 10px 0 14px; }
+  .zonein label { font-weight: 600; }
+  input.num { width: 100px; padding: 8px 10px; font-size: 1rem; font-family: inherit; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-variant-numeric: tabular-nums; }
+  input.num:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .zone { display: grid; grid-template-columns: 44px 120px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .zone:last-child { border-bottom: none; }
+  .zone .z { font-family: "Barlow Condensed", Arial, sans-serif; font-weight: 700; font-size: 1.15rem; }
+  .zone .bpm { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  .zone .d { color: var(--muted); font-size: .9rem; }
+  /* Essen */
+  .mday { border-top: 1px solid var(--line); padding: 12px 0 8px; }
+  .mday.restday { background: var(--surface-2); margin: 0 -20px; padding: 12px 20px 8px; }
+  .mdh { display: flex; gap: 10px; align-items: baseline; }
+  .mdh b { font-family: "Barlow Condensed", Arial, sans-serif; font-size: 1.4rem; }
+  .mdh .tot { margin-left: auto; font-weight: 700; color: var(--highlight); font-variant-numeric: tabular-nums; }
+  .meal { margin-top: 6px; }
+  .ml { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-right: 8px; }
+  .meal p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+  .kcal { font-size: .82rem; font-weight: 700; color: var(--highlight); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .extras { font-size: .85rem; color: var(--muted); margin: 6px 0 0; }
+  .callout { border-left: 4px solid var(--highlight); background: var(--highlight-soft); border-radius: 0 10px 10px 0; padding: 10px 14px; margin: 12px 0; font-size: .95rem; }
+  .callout.blue { border-left-color: var(--accent); background: var(--accent-soft); }
+  .weekgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .weekgrid { grid-template-columns: 1fr; } }
+  .weekcheck { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+  .weekcheck h3 { margin-bottom: 4px; }
+  .field { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; font-size: .92rem; }
+  .field label { font-weight: 600; min-width: 130px; }
+  input.txt { flex: 1; min-width: 120px; padding: 7px 10px; font-size: .95rem; font-family: inherit; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); }
+  input.txt:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+  .pill-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: .9rem; font-weight: 600; }
+  footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 16px; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Jan · Halber Ironman 2028 · Block 1 von ~20</p>
+    <h1>Jans 70.3-Projekt</h1>
+    <p class="lede">1,9 km schwimmen, 90 km Rad, 21,1 km laufen — im Sommer 2028. Der Weg dahin beginnt am Montag nach dem Halbmarathon: <b>Mo 05.10.2026</b>. Trainiert wird sonntags bis donnerstags, abends ab 17:30 Uhr; Freitag und Samstag sind fest frei. Alle vier Wochen kommt ein neuer Block, gebaut auf deinen echten Zahlen von der Uhr.</p>
+    <div class="cards">
+      <div class="card"><b>5</b><span>Einheiten pro Woche (So–Do)</span></div>
+      <div class="card"><b>5–7,5 h</b><span>Trainingszeit pro Woche</span></div>
+      <div class="card"><b>2.800</b><span>kcal Trainingstag · 2.200 Ruhetag</span></div>
+      <div class="card"><b>160 g+</b><span>Eiweiß am Tag</span></div>
+    </div>
+    <nav class="toc">
+      <a href="#heute">Tages-Check</a><a href="#fahrplan">Fahrplan bis 2028</a><a href="#woche">Wochenstruktur</a><a href="#block1">Block 1 · Wochen 1–4</a><a href="#zonen">Pulszonen</a><a href="#kraul">Kraul lernen</a><a href="#kraft">Kraft A</a><a href="#essen">Essen</a><a href="#einkauf">Einkauf</a><a href="#ergebnisse">Ergebnisse</a>
+    </nav>
+  </header>
+
+  <section class="panel tint" id="heute">
+    <div class="panel-head"><h2>Tages-Check <span class="day-date" id="todayLabel"></span></h2><span class="progress" id="todayProg"></span></div>
+    <div class="checklist" id="dailyList"></div>
+    <div class="dots" id="weekDots"></div>
+    <p class="note">Häkchen gelten für heute und setzen sich um Mitternacht zurück. 6 von 8 ist ein guter Tag — an Fr/Sa zählen Banane und Shake nicht.</p>
+  </section>
+
+  <section class="panel" id="fahrplan">
+    <h2><span class="num">1</span>Fahrplan bis zum 70.3</h2>
+    <p class="lede">Zwei Jahre, sieben Etappen. Jede Etappe hat ein messbares Ziel — wenn es steht, geht's weiter. Zwischen­rennen 2027 sind Pflicht: Wechselzone, Freiwasser und Verpflegung lernt man nicht am Schreibtisch.</p>
+    <div class="tablebox" style="margin-top:12px"><table>
+      <tr><th class="n">Wann</th><th>Etappe · Ziel am Ende</th></tr>
+        <tr class=now><td class="n">Okt – Dez 2026</td><td><b>Block 1–3 · Grundlage + Kraul lernen</b> <span class=pill>jetzt</span><br><span class="muted">Kraul 200 m am Stück · 10 km locker in Z2 · 2,5 Std Rad · Kraft-Routine sitzt</span></td></tr>
+        <tr><td class="n">Jan – Mär 2027</td><td><b>Winter-Basis</b><br><span class="muted">Schwimmen 3×/Wo → 1.000 m am Stück · Rad drinnen (Gym/Rolle) · Kraft 2× · Lauf-Basis halten</span></td></tr>
+        <tr><td class="n">Apr – Jun 2027</td><td><b>Erste Rennen</b> <span class=pill>Rennen</span><br><span class="muted"><b>Sprint-Triathlon</b> (750 m / 20 km / 5 km) im Mai/Juni · Rennrad draußen 3 Std · Freiwasser üben (Neopren)</span></td></tr>
+        <tr><td class="n">Jul – Sep 2027</td><td><b>Olympische Distanz</b> <span class=pill>Rennen</span><br><span class="muted"><b>Olympischer Triathlon</b> (1,5 km / 40 km / 10 km) im Aug/Sep · Wechselzonen-Routine · lange Koppeleinheiten</span></td></tr>
+        <tr><td class="n">Okt – Dez 2027</td><td><b>Rennen 2028 festlegen</b> <span class=pill>Anmeldung</span><br><span class="muted"><b>Bis Ende Oktober 2027 anmelden</b> (70.3-Rennen sind früh ausgebucht) · Grundlage 2 · Zeitfahr-/Aeroposition testen</span></td></tr>
+        <tr><td class="n">Jan – Apr 2028</td><td><b>Spezifischer Aufbau</b><br><span class="muted">Lange Rad 3–4 Std · lange Läufe 90 Min · Koppel 2 Std Rad + 45 Min Lauf · Schwimmen 2.000 m am Stück</span></td></tr>
+        <tr><td class="n">Mai – Aug 2028</td><td><b>Rennspezifisch + Taper</b> <span class=pill>Ziel</span><br><span class="muted">Wettkampf-Verpflegung üben · 3 Wochen Taper · <b>70.3: 1,9 km / 90 km / 21,1 km</b></span></td></tr>
+    </table></div>
+    <div class="callout blue"><b>Größter Hebel jetzt: Kraul lernen.</b> 1,9 km Brust sind im Rennen erlaubt, aber langsam und ermüdend. Ein <b>Kraulkurs</b> (Schwimmschule, VHS oder Verein, 6–8 Abende, 80–150 €) spart Monate — bitte diese Woche einen suchen und buchen. Bis dahin läuft das Programm unter „Kraul lernen“.</div>
+  </section>
+
+  <section class="panel" id="woche">
+    <h2><span class="num">2</span>Die Wochenstruktur</h2>
+    <p class="lede">Immer gleich, damit es Routine wird. Wechselt ein Tag mal, tauscht die Einheit — nicht ausfallen lassen.</p>
+    <div class="tablebox" style="margin-top:12px"><table>
+      <tr><th class="n">Tag</th><th>Einheit</th><th>Wo / Wann</th></tr>
+      <tr><td class="n"><b>So</b></td><td><b>Lange Radausfahrt</b> (ab Woche 2 + Koppellauf)</td><td>draußen, vormittags bei Tageslicht · danach Mittag + Meal-Prep</td></tr>
+      <tr><td class="n"><b>Mo</b></td><td><b>Schwimmen</b> — Technik</td><td>Schwimmbad, 17:30</td></tr>
+      <tr><td class="n"><b>Di</b></td><td><b>Laufen</b> — Grundlage / Intervalle</td><td>draußen mit Stirnlampe, 17:30</td></tr>
+      <tr><td class="n"><b>Mi</b></td><td><b>Gym:</b> Kraft A + Ergometer/Spinning</td><td>Fitnessstudio, 17:30 – 19:00</td></tr>
+      <tr><td class="n"><b>Do</b></td><td><b>Schwimmen</b> + kurzer Lauf</td><td>Schwimmbad 17:30, Lauf direkt danach</td></tr>
+      <tr><td class="n"><b>Fr</b></td><td>frei</td><td>Einkauf nach der Arbeit</td></tr>
+      <tr><td class="n"><b>Sa</b></td><td>frei (Schule)</td><td>—</td></tr>
+    </table></div>
+    <p class="note">Regel: Zone 2 ist die Hauptzone. Reden muss gehen. Hart wird nur, was im Plan als Zone 3 oder Test markiert ist.</p>
+  </section>
+
+  <section class="panel" id="block1">
+    <div class="panel-head"><h2><span class="num">3</span>Block 1 · Mo 05.10. – So 01.11.</h2><span class="progress" id="blockProg"></span></div>
+    <p class="lede">Jede Einheit abhaken. Die Häkchen bleiben gespeichert — am Ende des Blocks sehen wir sofort, was gemacht wurde und was nicht.</p>
+    <div class="week" id="woche1">
+      <div class="weekhead"><h3>Woche 1 · Regeneration + Einstieg</h3><span class="muted">Mo 05.10. – So 11.10. · ≈ 5 Std</span><span class="prog" id="wprog1"></span></div>
+      <p class="intro">Der Halbmarathon vom 04.10. steckt in den Beinen. Diese Woche ist bewusst leicht: Laufen nur locker, dafür Start ins Kraul-Lernen und die erste Radausfahrt. Wer hier schon Gas gibt, holt sich die erste Verletzung.</p>
+      <div class="units">
+      <label class="unit swim" data-k="w1-0">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mo 05.10.</b> <em>Schwimmen</em><span class="dur">45 Min</span></span><b class="ut">Schwimmen — Kraul Stufe 1</b><span class="ud">Bad 17:30. 200 m Brust einschwimmen · 6× (Abstoßen vom Rand, Gleiten in Streamline, dann Beinschlag bis es nicht mehr geht) · 8× 25 m Beinschlag mit Brett, Gesicht im Wasser, <b>ausatmen durch die Nase</b>, Kopf nur zum Einatmen heben · 6× 25 m Einarm-Kraul mit Brett (Arm wechseln) · 100 m Brust aus. ≈ 700 m</span></span>
+      </label>
+      <label class="unit run" data-k="w1-1">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Di 06.10.</b> <em>Laufen</em><span class="dur">40 Min</span></span><b class="ut">Laufen — ganz locker</b><span class="ud">Zone 1–2, flach, <b>30 Min</b> nur Beine ausschütteln (Halbmarathon-Nachwehen). Danach 10 Min Dehnen: Waden, Hüftbeuger, Oberschenkel-Rückseite.</span></span>
+      </label>
+      <label class="unit gym" data-k="w1-2">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mi 07.10.</b> <em>Kraft + Rad</em><span class="dur">30 + 30 Min</span></span><b class="ut">Gym — Kraft A leicht + Ergometer</b><span class="ud">Kraft A (Blatt 6) mit <b>2 Runden</b> statt 3, Technik lernen, Gewichte leicht · danach Ergometer/Spinning <b>30 Min Zone 2</b>, Trittfrequenz 85–95.</span></span>
+      </label>
+      <label class="unit swim" data-k="w1-3">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Do 08.10.</b> <em>Schwimmen</em><span class="dur">40 + 20 Min</span></span><b class="ut">Schwimmen Stufe 1 + kurzer Lauf</b><span class="ud">Gleiches Programm wie Montag, ≈ 800 m · danach <b>20 Min lockerer Lauf</b> Zone 1–2 (direkt vom Bad oder zu Hause).</span></span>
+      </label>
+      <label class="unit rest" data-k="w1-4">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Fr 09.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei</b><span class="ud">Einkauf nach der Arbeit (Blatt 8). Dehnen optional.</span></span>
+      </label>
+      <label class="unit rest" data-k="w1-5">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Sa 10.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei (Schule)</b><span class="ud">Nichts. Schlaf nachholen.</span></span>
+      </label>
+      <label class="unit bike" data-k="w1-6">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>So 11.10.</b> <em>Rad</em><span class="dur">90 Min</span></span><b class="ut">Rad draußen — Grundlage</b><span class="ud">Vormittags bei Tageslicht: <b>90 Min Zone 1–2</b>, flach, hohe Trittfrequenz (85–95), Helm + Licht. Kein Tempo, kein Bergsprint. Danach Mittag + abends Meal-Prep für Mo/Di.</span></span>
+      </label>
+      </div>
+    </div>
+    <div class="week" id="woche2">
+      <div class="weekhead"><h3>Woche 2 · Aufbau 1</h3><span class="muted">Mo 12.10. – So 18.10. · ≈ 6,5 Std</span><span class="prog" id="wprog2"></span></div>
+      <p class="intro">Erste normale Woche. Alles in Zone 2 — nur Mittwoch auf dem Ergometer und die Steigerungen am Dienstag dürfen kurz härter sein. Sonntag das erste kleine Koppeltraining: vom Rad direkt in die Laufschuhe.</p>
+      <div class="units">
+      <label class="unit swim" data-k="w2-0">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mo 12.10.</b> <em>Schwimmen</em><span class="dur">50 Min</span></span><b class="ut">Schwimmen — Stufe 1 → 2</b><span class="ud">200 m Brust ein · 6× 25 m Beinschlag mit Brett + Atmung · <b>neu: 6× 25 m Beinschlag in Seitlage</b> (unterer Arm gestreckt, Ohr auf der Schulter, oberer Arm am Körper, Gesicht abwechselnd im Wasser / zur Seite atmen) · 6× 25 m Einarm-Kraul · 4× 25 m Kraul-Versuch, so weit es geht · 100 m aus. ≈ 1.000 m</span></span>
+      </label>
+      <label class="unit run" data-k="w2-1">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Di 13.10.</b> <em>Laufen</em><span class="dur">50 Min</span></span><b class="ut">Laufen — Grundlage + Steigerungen</b><span class="ud"><b>50 Min Zone 2</b> (Reden muss gehen) · in den letzten 10 Min 4× 80 m Steigerungsläufe (locker beschleunigen bis zügig, nie Sprint) mit Trab zurück.</span></span>
+      </label>
+      <label class="unit gym" data-k="w2-2">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mi 14.10.</b> <em>Kraft + Rad</em><span class="dur">40 + 40 Min</span></span><b class="ut">Gym — Kraft A + Ergometer mit Tempo</b><span class="ud">Kraft A <b>3 Runden</b> · Ergometer 40 Min: 10 Min Z2 ein, dann <b>3× 3 Min Zone 3</b> / 3 Min Z2 locker, Rest Z2 aus. Trittfrequenz 85–95.</span></span>
+      </label>
+      <label class="unit swim" data-k="w2-3">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Do 15.10.</b> <em>Schwimmen</em><span class="dur">45 + 30 Min</span></span><b class="ut">Schwimmen Stufe 2 + Lauf</b><span class="ud">Wie Montag, Fokus Seitlage-Atmung, ≈ 1.000 m · danach <b>30 Min Lauf Zone 2</b>.</span></span>
+      </label>
+      <label class="unit rest" data-k="w2-4">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Fr 16.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei</b><span class="ud">Einkauf. Wochen-Feedback kurz an Mikel: was ging, was nicht.</span></span>
+      </label>
+      <label class="unit rest" data-k="w2-5">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Sa 17.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei (Schule)</b><span class="ud">—</span></span>
+      </label>
+      <label class="unit bike" data-k="w2-6">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>So 18.10.</b> <em>Rad</em><span class="dur">2 Std + 10 Min</span></span><b class="ut">Rad draußen + erstes Koppeln</b><span class="ud"><b>2 Std Zone 2</b>, ab Minute 60 alle 30 Min Banane/Riegel + trinken · zu Hause Rad abstellen, Schuhe wechseln und <b>sofort 10 Min locker laufen</b> — die Beine fühlen sich komisch an, das ist der Sinn.</span></span>
+      </label>
+      </div>
+    </div>
+    <div class="week" id="woche3">
+      <div class="weekhead"><h3>Woche 3 · Aufbau 2</h3><span class="muted">Mo 19.10. – So 25.10. · ≈ 7,5 Std</span><span class="prog" id="wprog3"></span></div>
+      <p class="intro">Die härteste Woche des Blocks: mehr Umfang auf dem Rad, erste Intervalle beim Laufen und auf dem Ergometer. Im Wasser das Ziel: 25 m Kraul mit Atmung, ohne Stehenbleiben. Schlaf ≥ 7 Std ist diese Woche Pflicht.</p>
+      <div class="units">
+      <label class="unit swim" data-k="w3-0">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mo 19.10.</b> <em>Schwimmen</em><span class="dur">50 Min</span></span><b class="ut">Schwimmen — Stufe 2, Ziel 25 m Kraul</b><span class="ud">200 m ein · 4× 25 m Beinschlag Seitlage je Seite · 6× 25 m „Zipper“ (beim Rückholen des Arms mit dem Daumen an der Körperseite entlang bis zur Achsel — hoher Ellbogen) · <b>8× 25 m Kraul mit Atmung alle 3 Züge</b>, Pause am Rand bis der Puls unten ist · 4× 25 m mit Pullbuoy nur Arme · 100 m aus. ≈ 1.100 m</span></span>
+      </label>
+      <label class="unit run" data-k="w3-1">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Di 20.10.</b> <em>Laufen</em><span class="dur">60 Min</span></span><b class="ut">Laufen — erste Intervalle</b><span class="ud">15 Min Z2 ein · <b>4× 4 Min Zone 3</b> (zügig, kurze Sätze möglich) / 3 Min Trab · 12 Min Z1 aus. Pulsgurt an, Ø-Puls je Intervall merken.</span></span>
+      </label>
+      <label class="unit gym" data-k="w3-2">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mi 21.10.</b> <em>Kraft + Rad</em><span class="dur">40 + 45 Min</span></span><b class="ut">Gym — Kraft A + Ergometer-Intervalle</b><span class="ud">Kraft A 3 Runden (+2,5 kg wenn Woche 2 sauber war) · Ergometer 45 Min: 10 Min ein, <b>3× 6 Min Zone 3</b> / 4 Min Z2, 5 Min aus.</span></span>
+      </label>
+      <label class="unit swim" data-k="w3-3">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Do 22.10.</b> <em>Schwimmen</em><span class="dur">45 + 30 Min</span></span><b class="ut">Schwimmen + Lauf</b><span class="ud">Wie Montag, ≈ 1.200 m · Versuch: <b>50 m Kraul am Stück</b> (Wende erlaubt: kurz am Rand festhalten, weiter) · danach 30 Min Lauf Zone 2.</span></span>
+      </label>
+      <label class="unit rest" data-k="w3-4">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Fr 23.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei</b><span class="ud">Einkauf. Früh ins Bett — Sonntag wird lang.</span></span>
+      </label>
+      <label class="unit rest" data-k="w3-5">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Sa 24.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei (Schule)</b><span class="ud">—</span></span>
+      </label>
+      <label class="unit bike" data-k="w3-6">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>So 25.10.</b> <em>Rad</em><span class="dur">2,5 Std + 15 Min</span></span><b class="ut">Lange Radausfahrt + Koppellauf</b><span class="ud"><b>2,5 Std Zone 2</b>, gern hügelig — Anstiege sitzend mit hoher Trittfrequenz, nicht aus dem Sattel hämmern · ab Minute 60 alle 30 Min essen (Banane/Riegel), 500 ml/Std trinken · danach <b>15 Min Koppellauf</b> locker.</span></span>
+      </label>
+      </div>
+    </div>
+    <div class="week" id="woche4">
+      <div class="weekhead"><h3>Woche 4 · Entlastung + Tests</h3><span class="muted">Mo 26.10. – So 01.11. · ≈ 5 Std</span><span class="prog" id="wprog4"></span></div>
+      <p class="intro">Umfang runter, dafür drei Tests: Schwimmen, 5 km Lauf, 20 Min Ergometer. Die Zahlen sind die Basis für Block 2 — nicht das Ergebnis schönlaufen, sondern ehrlich messen. Am Sonntag alles an Mikel schicken.</p>
+      <div class="units">
+      <label class="unit swim" data-k="w4-0">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mo 26.10.</b> <em>Schwimmen</em><span class="dur">40 Min</span></span><b class="ut">Schwimmen locker + Test</b><span class="ud">200 m ein · 20 Min Technik nach Wahl (Seitlage, Zipper) · <b>Test: Kraul so weit wie möglich am Stück</b>, Strecke + Zeit notieren (Ziel: 50–100 m) · 200 m aus.</span></span>
+      </label>
+      <label class="unit run" data-k="w4-1">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Di 27.10.</b> <em>Laufen</em><span class="dur">50 Min</span></span><b class="ut">Lauf-Test 5 km</b><span class="ud">15 Min Z2 einlaufen · <b>5 km so schnell wie gleichmäßig möglich</b> (nicht sprinten und einbrechen) — Zeit + Ø-Puls + max. Puls notieren · 10 Min auslaufen.</span></span>
+      </label>
+      <label class="unit gym" data-k="w4-2">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Mi 28.10.</b> <em>Kraft + Rad</em><span class="dur">25 + 35 Min</span></span><b class="ut">Gym — Kraft leicht + Ergometer-Test</b><span class="ud">Kraft A 2 Runden leicht · Ergometer: 10 Min ein, <b>20 Min so hart wie gleichmäßig möglich</b> — Ø-Watt + Ø-Puls notieren · 5 Min aus.</span></span>
+      </label>
+      <label class="unit swim" data-k="w4-3">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Do 29.10.</b> <em>Schwimmen</em><span class="dur">40 + 20 Min</span></span><b class="ut">Schwimmen locker + Lauf</b><span class="ud">Nur Technik, ≈ 800 m, nichts Hartes · danach 20 Min lockerer Lauf.</span></span>
+      </label>
+      <label class="unit rest" data-k="w4-4">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Fr 30.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei</b><span class="ud">Einkauf für Block 2 folgt nach Mikels Update.</span></span>
+      </label>
+      <label class="unit rest" data-k="w4-5">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>Sa 31.10.</b> <em>Frei</em><span class="dur">—</span></span><b class="ut">Frei (Schule)</b><span class="ud">—</span></span>
+      </label>
+      <label class="unit bike" data-k="w4-6">
+        <input type="checkbox"><span class="box">✓</span>
+        <span class="t"><span class="dl"><b>So 01.11.</b> <em>Rad</em><span class="dur">90 Min</span></span><b class="ut">Rad locker + Abschluss</b><span class="ud"><b>90 Min Zone 1–2</b> · danach: Wochenmittel Gewicht, alle 3 Testwerte und die Uhr-Zusammenfassung der 4 Wochen an Mikel → Block 2 wird darauf gebaut.</span></span>
+      </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="zonen">
+    <h2><span class="num">4</span>Pulszonen</h2>
+    <p class="lede">Dein Ø-Puls vom Halbmarathon am 04.10. ist deine Schwelle (Schwellenpuls). Trag ihn ein, die Zonen rechnen sich aus und bleiben gespeichert. Für's Rad gilt: <b>Laufzonen minus 6 Schläge</b>.</p>
+    <div class="zonein"><label for="lthr">Ø-Puls Halbmarathon:</label><input class="num" id="lthr" type="number" inputmode="numeric" placeholder="z. B. 175"><span class="muted">bpm</span></div>
+    <div id="zones"></div>
+    <p class="note">Solange kein Wert drin ist, rechnet die Tabelle mit 175 als Beispiel. Brustgurt bei jeder Einheit — die Uhr am Handgelenk ist beim Schwimmen und bei Intervallen zu ungenau.</p>
+  </section>
+
+  <section class="panel" id="kraul">
+    <h2><span class="num">5</span>Kraul lernen — von null</h2>
+    <p class="lede">Zweimal die Woche 45 Minuten, immer im 25-m-Becken. Es geht nicht um Meter, sondern um <b>Atmung und Wasserlage</b>. Wer zuerst die Atmung kann, lernt den Rest in Wochen; wer zuerst „schwimmen“ will, kämpft Monate.</p>
+    <div class="tablebox" style="margin-top:12px"><table>
+      <tr><th class="n">Stufe</th><th>Was du übst</th><th>Geschafft, wenn …</th></tr>
+      <tr><td class="n"><b>1</b><br><span class="muted">Wo 1–2</span></td><td>Ausatmen im Wasser (Nase, ruhig, komplett) · Gleiten in Streamline vom Rand · Beinschlag mit Brett, Gesicht im Wasser · Einarm-Kraul mit Brett</td><td>25 m Beinschlag mit Brett, ohne Panik, gleichmäßig ausatmen</td></tr>
+      <tr><td class="n"><b>2</b><br><span class="muted">Wo 2–4</span></td><td>Beinschlag in Seitlage (Ohr auf der Schulter) · Seitatmung: zur Seite drehen, nicht Kopf heben · „Zipper“ für den hohen Ellbogen · Kraul mit Atmung alle 3 Züge</td><td>25 m Kraul mit Atmung, ohne stehenzubleiben · dann 50 m</td></tr>
+      <tr><td class="n"><b>3</b><br><span class="muted">Block 2</span></td><td>Pullbuoy-Serien (nur Arme) · Zugphase: Hand unter dem Körper nach hinten drücken · Rhythmus 2er/3er-Atmung · 4× 50 m mit kurzer Pause</td><td>200 m am Stück, gleichmäßig</td></tr>
+      <tr><td class="n"><b>4</b><br><span class="muted">Winter</span></td><td>Intervalle 8× 100 m · Wasserlage ohne Hilfsmittel · Orientierung (Kopf kurz heben ohne Rhythmusverlust)</td><td>1.000 m am Stück — bereit fürs Freiwasser</td></tr>
+    </table></div>
+    <div class="callout"><b>Ausrüstung fürs Bad:</b> Schwimmbrille (Speedo/Arena, 15–25 €), Badekappe, eigener Pullbuoy (10 €). Brett gibt's im Bad. Videos zum Nachschauen: YouTube „Effortless Swimming“ oder „Total Immersion Freestyle“ — 10 Minuten vor der Einheit reicht.</div>
+  </section>
+
+  <section class="panel" id="kraft">
+    <h2><span class="num">6</span>Kraft A — mittwochs im Gym</h2>
+    <p class="lede">40 Minuten, 3 Runden, 60 Sekunden Pause. Gewicht so, dass 2 Wiederholungen Reserve bleiben. Wenn alle Runden sauber waren: nächste Woche +2,5 kg. Danach direkt aufs Ergometer.</p>
+    <div class="tablebox" style="margin-top:12px"><table>
+      <tr><th>Übung</th><th class="n">Sätze</th><th>Worauf achten</th></tr>
+        <tr><td><b>Goblet-Kniebeuge</b></td><td class="n">3 × 10</td><td class="muted">Kurzhantel vor der Brust, Fersen unten, tief</td></tr>
+        <tr><td><b>Rumänisches Kreuzheben</b></td><td class="n">3 × 10</td><td class="muted">Kurzhanteln, Rücken gerade, Dehnung hinten spüren</td></tr>
+        <tr><td><b>Ausfallschritte</b></td><td class="n">3 × 8 je Seite</td><td class="muted">Knie über dem Fuß, Oberkörper aufrecht</td></tr>
+        <tr><td><b>Latzug</b></td><td class="n">3 × 10</td><td class="muted">zur Brust, Ellbogen nach unten</td></tr>
+        <tr><td><b>Kabelrudern</b></td><td class="n">3 × 10</td><td class="muted">Schulterblätter zusammen, kein Schwung</td></tr>
+        <tr><td><b>Schulterdrücken</b></td><td class="n">3 × 10</td><td class="muted">Kurzhanteln, Rumpf fest</td></tr>
+        <tr><td><b>Plank</b></td><td class="n">3 × 45 Sek</td><td class="muted">Hüfte nicht durchhängen</td></tr>
+        <tr><td><b>Seitplank</b></td><td class="n">3 × 30 Sek je Seite</td><td class="muted">Hüfte hoch</td></tr>
+        <tr><td><b>Wadenheben</b></td><td class="n">3 × 15</td><td class="muted">an der Stufe, langsam runter</td></tr>
+    </table></div>
+    <p class="note">Ergometer/Spinning danach: Trittfrequenz 85–95 anzeigen lassen. Ab Woche 2 mit Zone-3-Abschnitten laut Plan. Sattelhöhe: Bein fast gestreckt, wenn die Ferse auf dem Pedal ist.</p>
+  </section>
+
+  <section class="panel" id="essen">
+    <h2><span class="num">7</span>Essen — die Trainingswoche</h2>
+    <p class="lede">Zwei große Mahlzeiten wie gewohnt (Mittag kalt für die Baustelle, Abend warm) plus das Sport-Fenster: Banane vor, Shake nach dem Training, jeden Abend das Quark-Dessert. Keine Tomaten, keine Pilze. Kalorien stehen bei jedem Gericht, damit du weißt, wo du sparen oder drauflegen kannst.</p>
+    <div class="callout"><b>Die Logik:</b> Trainingstag ≈ 2.800–2.950 kcal · Ruhetag Fr/Sa ≈ 2.200 (kein Shake, keine Banane, Beilage abends halbiert) · Sonntag mit Radverpflegung ≈ 3.000. Wochenschnitt ≈ 2.730 — bei körperlicher Arbeit + 6 Std Sport ein leichtes Defizit für 0,3–0,5 kg pro Woche.</div>
+      <div class="mday">
+        <div class="mdh"><b>Mo</b><span class="muted">Trainingstag</span><span class="tot">≈ 2.970 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>Meal-Prep-Bowl</b> <span class="kcal">≈ 1020 kcal · 70 g EW</span><p>Reis 120 g (roh) · Hähnchen 250 g · 1 Paprika · ½ Gurke · 70 g Mais · Dressing: 100 g Joghurt 3,5 % + Zitrone, Salz, Paprikapulver · + 1 Apfel <span class="muted">(vorbereitet am So)</span></p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Nudeln mit Hähnchen-Rahm</b> <span class="kcal">≈ 1165 kcal · 85 g EW</span><p>Nudeln 140 g (roh) · Hähnchen 250 g · 150 g Erbsen · 1 Zwiebel · 200 ml Kochsahne light · 1 EL Öl · Pfeffer, Muskat</p></div>
+        <p class="extras">+ Banane 16 100 · Shake nach dem Training 345 · Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday">
+        <div class="mdh"><b>Di</b><span class="muted">Trainingstag</span><span class="tot">≈ 2.895 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>Meal-Prep-Bowl (2. Portion)</b> <span class="kcal">≈ 1020 kcal · 70 g EW</span><p>wie Montag, aus dem Kühlschrank · + 1 Apfel</p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Hack-Kartoffel-Pfanne, überbacken</b> <span class="kcal">≈ 1090 kcal · 80 g EW</span><p>Hack 5 % 250 g · Kartoffeln 500 g (gewürfelt, vorgekocht) · 1 Paprika · 1 Zwiebel · 1 EL Öl · Paprikapulver · zum Schluss 1 Ei + 50 g Reibekäse drüber, Deckel drauf <span class="muted">(danach Nudelsalat für Mi + Do machen)</span></p></div>
+        <p class="extras">+ Banane 16 100 · Shake nach dem Training 345 · Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday">
+        <div class="mdh"><b>Mi</b><span class="muted">Trainingstag</span><span class="tot">≈ 2.865 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>Nudelsalat mit Thunfisch</b> <span class="kcal">≈ 1030 kcal · 70 g EW</span><p>Nudeln 140 g (roh) · 1 Dose Thunfisch (eigener Saft) · 100 g Erbsen · ½ Paprika · 3 Gewürzgurken · 75 g Joghurt 3,5 % + 1 TL Senf · 2 gekochte Eier · + 1 Apfel <span class="muted">(vorbereitet am Di)</span></p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Lachs-Teller</b> <span class="kcal">≈ 1050 kcal · 78 g EW</span><p>Lachs 250 g · Kartoffeln 500 g · grüne Bohnen 250 g · Dip: 150 g Magerquark + TK-Kräuter + Salz · Zitrone</p></div>
+        <p class="extras">+ Banane 16 100 · Shake nach dem Training 345 · Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday">
+        <div class="mdh"><b>Do</b><span class="muted">Trainingstag</span><span class="tot">≈ 2.845 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>Nudelsalat (2. Portion)</b> <span class="kcal">≈ 1030 kcal · 70 g EW</span><p>wie Mittwoch · + 1 Apfel</p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Hähnchen-Curry</b> <span class="kcal">≈ 1030 kcal · 72 g EW</span><p>Hähnchen 250 g · Reis 120 g (roh) · 200 ml Kokosmilch light · 1 Paprika · 100 g Erbsen · 1 Zwiebel · 1 EL Öl · Currypulver, Salz</p></div>
+        <p class="extras">+ Banane 16 100 · Shake nach dem Training 345 · Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday restday">
+        <div class="mdh"><b>Fr</b><span class="muted">Ruhetag</span><span class="tot">≈ 2.200 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>XXL-Brotzeit</b> <span class="kcal">≈ 1095 kcal · 64 g EW</span><p>4 Scheiben Vollkornbrot · 15 g Butter · 2 Scheiben Käse · 60 g Putenbrust · 3 gekochte Eier · Gurke + Paprika · + 1 Apfel</p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Gyros-Pfanne mit Tzatziki</b> <span class="kcal">≈ 765 kcal · 60 g EW</span><p>Hähnchen-Gyros 250 g · <b>Reis 60 g</b> (Ruhetag: halbe Beilage) · 1 Paprika · 1 Zwiebel · Tzatziki: 150 g Joghurt 3,5 % + ½ Gurke + Knoblauch · 1 EL Öl <span class="muted">(dazu 250 g Hähnchenbrust extra anbraten → Wraps Sa)</span></p></div>
+        <p class="extras">+ Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday restday">
+        <div class="mdh"><b>Sa</b><span class="muted">Ruhetag</span><span class="tot">≈ 2.240 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>Wrap-Paket</b> <span class="kcal">≈ 1005 kcal · 85 g EW</span><p>3 Wraps · 250 g Hähnchen (von Fr) · Salat, ½ Gurke, ½ Paprika · Soße: 150 g Magerquark + TK-Kräuter · + 1 Apfel</p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Frikadellen-Teller</b> <span class="kcal">≈ 895 kcal · 62 g EW</span><p>Hack 5 % 250 g + 1 Ei + 20 g Paniermehl + Zwiebel = 3 Frikadellen · <b>Püree aus 250 g Kartoffeln</b> + 50 ml Milch (Ruhetag: halbe Beilage) · 200 g Erbsen &amp; Möhren · 1 EL Öl <span class="muted">(oder: freie Mahlzeit der Woche)</span></p></div>
+        <p class="extras">+ Quark-Dessert abends 340</p>
+      </div>
+      <div class="mday">
+        <div class="mdh"><b>So</b><span class="muted">langer Radtag</span><span class="tot">≈ 3.090 kcal</span></div>
+        <div class="meal"><span class="ml">Mittag</span><b>XXL-Brotzeit nach dem Rad</b> <span class="kcal">≈ 1095 kcal · 64 g EW</span><p>wie Freitag — direkt nach der Ausfahrt · + 1 Apfel</p></div>
+        <div class="meal"><span class="ml">Abend</span><b>Hähnchen-Reis-Pfanne + Meal-Prep</b> <span class="kcal">≈ 910 kcal · 74 g EW</span><p>Hähnchen 250 g · Reis 120 g (roh) · 300 g Brokkoli · 1 Paprika · 1 EL Öl · Sojasoße · <b>gleichzeitig kochen: 500 g Hähnchen + 240 g Reis extra</b> = 2 Bowls für Mo + Di <span class="muted">(Prep-Abend)</span></p></div>
+        <p class="extras">+ Banane 16 100 · Shake nach dem Training 345 · Quark-Dessert abends 340 · Rad-Verpflegung So 300</p>
+      </div>
+    <p class="note" style="margin-top:14px"><b>Meal-Prep:</b> So Abend = Bowls für Mo + Di (500 g Hähnchen + 240 g Reis extra kochen). Di Abend = Nudelsalat für Mi + Do. Fr Abend = 250 g Hähnchen extra für die Wraps am Sa. Gewicht fällt schneller als 0,5 kg/Woche oder das Training bricht ein → Reis/Nudeln um 30 g pro Portion erhöhen.</p>
+  </section>
+
+  <section class="panel" id="einkauf">
+    <div class="panel-head"><h2><span class="num">8</span>Einkaufsliste — eine Woche</h2><span class="progress" id="shopProg"></span></div>
+    <p class="lede">Deckt alle 14 Mahlzeiten, Shakes, Dessert und die Radverpflegung. Freitag nach der Arbeit oder Samstag nach der Schule. Im Laden abhaken, danach zurücksetzen.</p>
+    <div class="checklist" id="shopList" style="margin-top:12px"></div>
+    <p style="margin-top:12px"><button class="resetbtn" id="shopReset" type="button">Liste zurücksetzen</button> <span class="muted" style="font-size:.85rem">Grob 85–95 € pro Woche.</span></p>
+  </section>
+
+  <section class="panel" id="ergebnisse">
+    <h2><span class="num">9</span>Ergebnisse — das schickst du Mikel</h2>
+    <p class="lede">Alles hier wird auf deinem Handy gespeichert. Am Sonntag jeder Woche: Gewicht eintragen, am Ende von Woche 4 die Tests. Dazu Screenshots der Wochenübersicht von der Uhr.</p>
+    <div class="weekgrid" style="margin-top:12px">
+      <div class="weekcheck"><h3>Woche 1</h3><div class="field"><label for="kg1">Gewicht So 11.10.</label><input class="txt" id="kg1" type="number" step="0.1" inputmode="decimal" placeholder="kg"></div><div class="field"><label for="n1">Notiz</label><input class="txt" id="n1" type="text" placeholder="z. B. Schienbein, Schlaf, Motivation"></div></div>
+      <div class="weekcheck"><h3>Woche 2</h3><div class="field"><label for="kg2">Gewicht So 18.10.</label><input class="txt" id="kg2" type="number" step="0.1" inputmode="decimal" placeholder="kg"></div><div class="field"><label for="n2">Notiz</label><input class="txt" id="n2" type="text" placeholder="was ging, was nicht"></div></div>
+      <div class="weekcheck"><h3>Woche 3</h3><div class="field"><label for="kg3">Gewicht So 25.10.</label><input class="txt" id="kg3" type="number" step="0.1" inputmode="decimal" placeholder="kg"></div><div class="field"><label for="n3">Notiz</label><input class="txt" id="n3" type="text" placeholder="Ø-Puls Intervalle Di?"></div></div>
+      <div class="weekcheck"><h3>Woche 4 · Tests</h3>
+        <div class="field"><label for="kg4">Gewicht So 01.11.</label><input class="txt" id="kg4" type="number" step="0.1" inputmode="decimal" placeholder="kg"></div>
+        <div class="field"><label for="t1">Kraul am Stück</label><input class="txt" id="t1" type="text" placeholder="z. B. 75 m in 2:10"></div>
+        <div class="field"><label for="t2">5 km Lauf</label><input class="txt" id="t2" type="text" placeholder="Zeit · Ø-Puls · max"></div>
+        <div class="field"><label for="t3">20 Min Ergometer</label><input class="txt" id="t3" type="text" placeholder="Ø-Watt · Ø-Puls"></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:14px"><label for="kg0"><b>Startgewicht 05.10.</b></label><input class="txt" id="kg0" type="number" step="0.1" inputmode="decimal" placeholder="76,5" style="max-width:120px"></div>
+    <h3 style="margin-top:18px">Regeln für den ganzen Weg</h3>
+    <ol class="rule-list" style="margin-top:8px">
+      <li><b>Schmerz ≠ Muskelkater.</b> Stechen in Schienbein, Knie, Achillessehne oder Schulter → die Disziplin 3 Tage pausieren, die anderen weitermachen. Nach 10 Tagen nicht besser → Arzt.</li>
+      <li><b>Verpasste Einheit</b> wird nicht nachgeholt, sondern gestrichen. Zwei verpasste in einer Woche → kurz melden, Plan wird angepasst.</li>
+      <li><b>Ruhepuls morgens</b> 5+ Schläge höher als sonst oder Halskratzen → Tag frei, kein Heldentum. Krank = 0 Training bis 2 Tage symptomfrei.</li>
+      <li><b>Rad-Sicherheit:</b> Helm immer, Licht vorn/hinten, Ersatzschlauch + Minipumpe + Handy dabei. Herbst: Laub und nasse Kurven.</li>
+      <li><b>Lauf im Dunkeln:</b> Stirnlampe + Reflektorweste ab 17:30 im Oktober.</li>
+    </ol>
+  </section>
+
+  <p class="note" style="text-align:center"><a href="Jan-70.3-Block1-Druckblaetter.pdf" style="color:var(--accent);font-weight:600">Druckblätter als PDF</a></p>
+  <footer>Block 1 von Jans Weg zum halben Ironman 2028 · gebaut 05.09.2026 auf Basis von Halbmarathon 04.10., Kraul von null, Rennrad ohne Rolle, Gym-Mitgliedschaft · nächster Block nach den Tests in Woche 4.</footer>
+</div>
+
+<script>
+(function () {
+  var PREFIX = 'jan703-';
+  var DAILY = [
+    { id: 'd0', t: 'Mittag gegessen (kalt, Baustelle)', s: '~1.000–1.100 kcal · + 1 Apfel' },
+    { id: 'd1', t: 'Banane 16:30', s: 'nur an Trainingstagen Mo–Do + So' },
+    { id: 'd2', t: 'Training laut Plan gemacht', s: 'Fr + Sa: bewusst frei' },
+    { id: 'd3', t: 'Shake nach dem Training', s: '40 g Whey + 400 ml Milch — nur nach dem Training' },
+    { id: 'd4', t: 'Abendessen warm', s: 'Ruhetag Fr/Sa: Beilage halbiert' },
+    { id: 'd5', t: 'Quark-Dessert', s: '250 g Magerquark + 30 g Hafer + Honig — jeden Tag, auch Fr/Sa' },
+    { id: 'd6', t: '3 L Wasser, nichts Süßes getrunken', s: 'Schorle nur auf dem Rad' },
+    { id: 'd7', t: '≥ 7 Std geschlafen', s: 'Regeneration ist Training' }
+  ];
+  var SHOP = [
+    { id: 's00', t: 'Hähnchenbrust (frisch oder TK)', m: 'So 250 + Bowls 500 · Mo 250 · Do 250 · Fr (Wraps) 250', p: '1,5 kg' },
+    { id: 's01', t: 'Hähnchen-Gyros (fertig gewürzt)', m: 'Gyros-Pfanne Fr 250 g', p: '1 Packung ≈ 300 g' },
+    { id: 's02', t: 'Hackfleisch 5 % (mager)', m: 'Hack-Pfanne Di 250 · Frikadellen Sa 250', p: '1 × 500 g' },
+    { id: 's03', t: 'Lachsfilet', m: 'Lachs-Teller Mi', p: '1 Packung 250 g' },
+    { id: 's04', t: 'Thunfisch im eigenen Saft (Dose)', m: 'Nudelsalat Mi + Do (je 1 Dose)', p: '2 Dosen' },
+    { id: 's05', t: 'Eier', m: 'Nudelsalat 4 · Brotzeit 6 · Frikadellen 1 · Hack-Pfanne 1', p: '1 × 12er' },
+    { id: 's06', t: 'Magerquark (500 g)', m: 'Dessert 7× 250 · Lachs-Dip 150 · Wrap-Soße 150', p: '4 Packungen' },
+    { id: 's07', t: 'Joghurt 3,5 % (500 g)', m: 'Dressing 100 · Nudelsalat 75 · Tzatziki 150', p: '1 Becher' },
+    { id: 's08', t: 'Käse in Scheiben', m: 'Brotzeit Fr + So je 2 Scheiben', p: '1 Packung 150 g' },
+    { id: 's09', t: 'Reibekäse', m: 'Hack-Pfanne Di 50 g (Rest hält 3 Wochen)', p: '1 Beutel 200 g' },
+    { id: 's10', t: 'Putenbrust-Aufschnitt', m: 'Brotzeit Fr + So je 60 g', p: '1 Packung ≈ 120 g' },
+    { id: 's11', t: 'Whey-Protein', m: 'Shake Mo, Di, Mi, Do, So', p: 'Vorrat: 5 × 40 g' },
+    { id: 's12', t: 'Milch 1,5 %', m: 'Shakes 5 × 400 ml · Püree 50 ml', p: '2 × 1 L' },
+    { id: 's13', t: 'Reis', m: 'So 120 + Bowls 240 · Do 120 · Fr 60 = 540 g', p: '1 × 1 kg' },
+    { id: 's14', t: 'Nudeln', m: 'Mo Rahm 140 · Nudelsalat 2 × 140 = 420 g', p: '1 × 500 g' },
+    { id: 's15', t: 'Kartoffeln', m: 'Di 500 · Mi 500 · Sa 250 = 1.250 g (Rest hält)', p: '1 Netz 2,5 kg' },
+    { id: 's16', t: 'Vollkornbrot', m: 'Brotzeit Fr 4 + So 4 = 8 Scheiben', p: '1 Packung 500 g' },
+    { id: 's17', t: 'Wraps', m: 'Sa 3 Stück (Rest einfrieren)', p: '1 Packung (6 Stück)' },
+    { id: 's18', t: 'Haferflocken (500 g)', m: 'Dessert 7 × 30 g = 210 g', p: '1 Packung' },
+    { id: 's19', t: 'Paprika', m: '8 Stück: Bowls 1 · Salat ½ · Di/Do/Fr 3 · Wraps ½ · Brotzeit 2 · So 1', p: '3 × 3er-Pack' },
+    { id: 's20', t: 'Gurken', m: 'Bowls ½ · Brotzeit 1 · Tzatziki ½ · Wraps ½', p: '3 Stück' },
+    { id: 's21', t: 'Zwiebeln · Knoblauch', m: 'Mo, Di, Do, Fr, Sa · Tzatziki', p: '1 Netz · 1 Knolle (falls leer)' },
+    { id: 's22', t: 'Kopfsalat oder Eisberg', m: 'Wraps Sa', p: '1 Stück' },
+    { id: 's23', t: 'Mais (Dose 285 g)', m: 'Bowls 70 g × 2 (Rest zum Salat)', p: '1 Dose' },
+    { id: 's24', t: 'Gewürzgurken (Glas)', m: 'Nudelsalat 2 × 3 Stück', p: '1 Glas (falls leer)' },
+    { id: 's25', t: 'TK-Erbsen (750 g)', m: 'Mo 150 · Nudelsalat 2 × 100 · Do 100 = 450 g', p: '1 Beutel' },
+    { id: 's26', t: 'TK-Erbsen & Möhren (450 g)', m: 'Frikadellen Sa 200 g', p: '1 Beutel' },
+    { id: 's27', t: 'TK-Brokkoli (750 g)', m: 'So Pfanne 300 g (Rest nächste Woche)', p: '1 Beutel' },
+    { id: 's28', t: 'TK-grüne Bohnen (750 g)', m: 'Lachs-Teller Mi 250 g', p: '1 Beutel' },
+    { id: 's29', t: 'TK-Kräuter (8 Kräuter)', m: 'Lachs-Dip · Wrap-Soße', p: '1 Packung (falls leer)' },
+    { id: 's30', t: 'Kochsahne light (200 ml)', m: 'Hähnchen-Rahm Mo', p: '1 Packung' },
+    { id: 's31', t: 'Kokosmilch light (400 ml)', m: 'Curry Do 200 ml (Rest einfrieren)', p: '1 Dose' },
+    { id: 's32', t: 'Äpfel', m: 'jeden Tag 1 zum Mittag', p: '1 kg (7 Stück)' },
+    { id: 's33', t: 'Bananen', m: 'vor dem Training Mo–Do + So · Rad So 1 extra', p: '7 Stück' },
+    { id: 's34', t: 'Haferriegel + Apfelsaft (1 L)', m: 'Rad So: 2 Riegel + Schorle 1:1', p: '1 Packung + 1 Flasche' },
+    { id: 's35', t: 'Vorrat prüfen: Butter · Honig · Öl · Paprika- + Currypulver · Sojasoße · Senf · Paniermehl · Muskat', m: 'alle Gerichte', p: 'je 1×, falls leer' }
+  ];
+  function dayKey(offset) { var d = new Date(); d.setDate(d.getDate() - (offset || 0)); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function load(key) { try { return JSON.parse(localStorage.getItem(PREFIX + key)) || {}; } catch (e) { return {}; } }
+  function save(key, obj) { try { localStorage.setItem(PREFIX + key, JSON.stringify(obj)); } catch (e) {} }
+
+  function buildList(container, items, state, onToggle, rightFn, subFn) {
+    container.innerHTML = '';
+    items.forEach(function (item) {
+      var label = document.createElement('label'); label.className = 'check' + (state[item.id] ? ' done' : '');
+      var input = document.createElement('input'); input.type = 'checkbox'; input.checked = !!state[item.id];
+      input.addEventListener('change', function () { onToggle(item.id, input.checked); label.classList.toggle('done', input.checked); });
+      var box = document.createElement('span'); box.className = 'box'; box.textContent = '✓';
+      var t = document.createElement('span'); t.className = 't';
+      var b = document.createElement('b'); b.textContent = item.t; t.appendChild(b);
+      var sub = subFn(item); if (sub) { var s = document.createElement('span'); s.textContent = sub; t.appendChild(s); }
+      label.appendChild(input); label.appendChild(box); label.appendChild(t);
+      var right = rightFn(item); if (right) { var r = document.createElement('span'); r.className = 'right'; r.textContent = right; label.appendChild(r); }
+      container.appendChild(label);
+    });
+  }
+
+  /* Tages-Check */
+  var todayState = load('day-' + dayKey());
+  var WEEKDAYS = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']; var now = new Date();
+  document.getElementById('todayLabel').textContent = 'Heute · ' + WEEKDAYS[now.getDay()] + ' ' + String(now.getDate()).padStart(2, '0') + '.' + String(now.getMonth() + 1).padStart(2, '0') + '.';
+  var dailyList = document.getElementById('dailyList'), todayProg = document.getElementById('todayProg'), weekDots = document.getElementById('weekDots');
+  function renderDots() {
+    weekDots.innerHTML = '';
+    for (var off = 6; off >= 0; off--) {
+      var st = (off === 0) ? todayState : load('day-' + dayKey(off));
+      var done = DAILY.filter(function (i) { return st[i.id]; }).length;
+      var dot = document.createElement('span'); dot.className = 'dot' + (done >= 6 ? ' full' : done >= 3 ? ' part' : ''); dot.title = dayKey(off) + ': ' + done + '/' + DAILY.length; weekDots.appendChild(dot);
+    }
+    var lbl = document.createElement('span'); lbl.className = 'lbl'; lbl.textContent = 'letzte 7 Tage (grün = 6+ Häkchen)'; weekDots.appendChild(lbl);
+  }
+  function updateDaily() { var done = DAILY.filter(function (i) { return todayState[i.id]; }).length; todayProg.textContent = done + ' / ' + DAILY.length; renderDots(); }
+  buildList(dailyList, DAILY, todayState, function (id, c) { todayState[id] = c; save('day-' + dayKey(), todayState); updateDaily(); }, function () { return ''; }, function (i) { return i.s; });
+  updateDaily();
+
+  /* Einheiten Block 1 */
+  var unitState = load('units');
+  var units = document.querySelectorAll('.unit');
+  function updateUnits() {
+    var total = 0, done = 0;
+    for (var w = 1; w <= 4; w++) {
+      var t = 0, d = 0;
+      document.querySelectorAll('.unit[data-k^="w' + w + '-"]').forEach(function (u) { if (u.classList.contains('rest')) return; t++; if (unitState[u.dataset.k]) d++; });
+      document.getElementById('wprog' + w).textContent = d + ' / ' + t; total += t; done += d;
+    }
+    document.getElementById('blockProg').textContent = done + ' / ' + total + ' Einheiten';
+  }
+  units.forEach(function (u) {
+    var inp = u.querySelector('input'); inp.checked = !!unitState[u.dataset.k]; u.classList.toggle('done', inp.checked);
+    inp.addEventListener('change', function () { unitState[u.dataset.k] = inp.checked; save('units', unitState); u.classList.toggle('done', inp.checked); updateUnits(); });
+  });
+  updateUnits();
+
+  /* Pulszonen */
+  var Z = [['Z1', 0, 0.85, 'Regeneration · Einrollen, Auslaufen, Sonntag ganz locker'], ['Z2', 0.85, 0.90, 'Grundlage — Hauptzone. 80 % des Trainings. Reden muss gehen.'], ['Z3', 0.90, 0.95, 'Zügig · Intervalle Di + Ergometer. Kurze Sätze.'], ['Z4', 0.95, 1.00, 'Schwelle · Halbmarathon-Tempo. Nur bei Tests.'], ['Z5', 1.00, 9, 'Maximal · gehört erst 2027 ins Programm.']];
+  var lthrInp = document.getElementById('lthr'), zonesEl = document.getElementById('zones');
+  var misc = load('misc');
+  if (misc.lthr) lthrInp.value = misc.lthr;
+  function renderZones() {
+    var l = parseInt(lthrInp.value, 10) || 175; zonesEl.innerHTML = '';
+    Z.forEach(function (z) {
+      var lo = Math.round(l * z[1]), hi = Math.round(l * z[2]) - 1;
+      var range = z[1] === 0 ? '< ' + (Math.round(l * z[2])) : (z[2] === 9 ? '≥ ' + lo : lo + '–' + hi);
+      var div = document.createElement('div'); div.className = 'zone';
+      div.innerHTML = '<span class="z">' + z[0] + '</span><span class="bpm">' + range + ' bpm</span><span class="d">' + z[3] + '</span>';
+      zonesEl.appendChild(div);
+    });
+  }
+  lthrInp.addEventListener('input', function () { misc.lthr = lthrInp.value; save('misc', misc); renderZones(); });
+  renderZones();
+
+  /* Einkauf */
+  var shopState = load('shop'); var shopList = document.getElementById('shopList'), shopProg = document.getElementById('shopProg');
+  function updateShop() { var done = SHOP.filter(function (i) { return shopState[i.id]; }).length; shopProg.textContent = done + ' / ' + SHOP.length; }
+  function renderShop() { buildList(shopList, SHOP, shopState, function (id, c) { shopState[id] = c; save('shop', shopState); updateShop(); }, function (i) { return i.p; }, function (i) { return i.m; }); updateShop(); }
+  renderShop();
+  document.getElementById('shopReset').addEventListener('click', function () { shopState = {}; save('shop', shopState); renderShop(); });
+
+  /* Ergebnisse */
+  var res = load('results');
+  document.querySelectorAll('input.txt').forEach(function (inp) {
+    if (res[inp.id] != null) inp.value = res[inp.id];
+    inp.addEventListener('change', function () { res[inp.id] = inp.value; save('results', res); });
+  });
+})();
+</script>
+
+<style>
+  #gate { position: fixed; inset: 0; background: var(--bg); z-index: 99; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  #gate form { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; max-width: 360px; width: 100%; text-align: center; }
+  #gate h2 { margin: 0 0 6px; }
+  #gate input { width: 100%; font-size: 1.6rem; text-align: center; letter-spacing: .3em; padding: 10px; margin: 14px 0 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); color: var(--ink); font-family: inherit; }
+  #gate button { width: 100%; padding: 12px; font-size: 1rem; font-weight: 700; border: 0; border-radius: 10px; background: var(--accent); color: var(--on-accent); cursor: pointer; font-family: inherit; }
+  #gate .err { color: var(--highlight); font-size: .9rem; min-height: 1.2em; margin: 0; }
+  body.locked > .wrap { display: none; }
+</style>
+<div id="gate" hidden><form id="gateForm" autocomplete="off">
+  <p class="eyebrow">Jans 70.3-Projekt</p><h2>PIN eingeben</h2>
+  <input id="pinIn" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" aria-label="PIN" autofocus>
+  <p class="err" id="pinErr"></p>
+  <button type="submit">Öffnen</button>
+</form></div>
+<script>
+(function () {
+  var HASH = '0f5e82517c70ef1f74fef5e09613fdaa6b23c44eb703994a67fea030593d24b4', KEY = 'jan703-unlocked';
+  var gate = document.getElementById('gate'), form = document.getElementById('gateForm'), inp = document.getElementById('pinIn'), err = document.getElementById('pinErr');
+  function unlocked() { try { return localStorage.getItem(KEY) === HASH; } catch (e) { return false; } }
+  async function sha(s) { var b = new TextEncoder().encode(s); var h = await crypto.subtle.digest('SHA-256', b); return Array.from(new Uint8Array(h)).map(function (x) { return x.toString(16).padStart(2, '0'); }).join(''); }
+  if (!unlocked()) { document.body.classList.add('locked'); gate.hidden = false; setTimeout(function () { inp.focus(); }, 50); }
+  form.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var h = await sha('jan703:' + inp.value.trim());
+    if (h === HASH) { try { localStorage.setItem(KEY, HASH); } catch (e) {} gate.hidden = true; document.body.classList.remove('locked'); }
+    else { err.textContent = 'Falsche PIN — frag Mikel.'; inp.value = ''; inp.focus(); }
+  });
+})();
+</script>
+
+</body>
+</html>
