@@ -657,8 +657,7 @@
     var mc = [];
     for (var i = 0; i < 7; i++) mc.push(DAYN[i] + ' ' + (mealState[i + '-l'] ? 'M✓' : 'M–') + (mealState[i + '-d'] ? 'A✓' : 'A–'));
     L.push('ESSEN Woche ' + fmt(monday) + ': ' + mc.join(' · '));
-    return L.join('
-');
+    return L.join('\n');
   }
   var repBtn = document.getElementById('reportBtn'), repTxt = document.getElementById('reportTxt'), repNote = document.getElementById('reportNote');
   repBtn.addEventListener('click', function () {
